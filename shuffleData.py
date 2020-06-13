@@ -6,7 +6,7 @@ data = pd.read_csv('regressionUseData.csv')
 
 #######################################
 ######### JUMBLE UP DATA ##############
-#######################################
+####################################### 
 
 team1cols = data.columns[2:39]
 team2cols = data.columns[39:76]

@@ -6,7 +6,7 @@ import pandas as pd
 ## https://www.teamrankings.com/ncb/stats/
 
 def getTeamsForYear(year): 
-    filename = str(year) + '.csv'
+    filename = str(year) + '.csv' 
     yearDF = pd.read_csv(filename)
     teams = list(yearDF['Team'])
     return teams

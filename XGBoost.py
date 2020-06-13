@@ -61,7 +61,7 @@ for learning_rate in tqdm(lr_list):
                     X_testFinal = X_test
 
 
-xgBoostPredictions = pd.DataFrame(X_testFinal)
+xgBoostPredictions = pd.DataFrame(X_testFinal) 
 xgBoostPredictions['Prediction'] = predictions
 xgBoostPredictions['Actual'] = y_test.values
 xgBoostPredictions['Correct'] = (xgBoostPredictions['Prediction'] == xgBoostPredictions['Actual'])

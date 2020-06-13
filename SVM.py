@@ -40,7 +40,7 @@ SVMPredictions = pd.DataFrame(X_test)
 SVMPredictions['Prediction'] = clf.predict(X_test)
 SVMPredictions['Actual'] = y_test.values
 SVMPredictions['Correct'] = (SVMPredictions['Prediction'] == SVMPredictions['Actual'])
-SVMPredictions['Model'] = 'SVM'
+SVMPredictions['Model'] = 'SVM' 
 
 
 SVMPredictions.to_csv('SVMPredictions.csv')

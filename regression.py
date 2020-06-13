@@ -49,7 +49,7 @@ logitredictions['Prediction'] = model.predict(X_test)
 logitredictions['Actual'] = y_test.values
 logitredictions['Correct'] = (logitredictions['Prediction'] == logitredictions['Actual'])
 logitredictions['Model'] = 'Logit'
-
+ 
 logitredictions.to_csv('logitPredictions.csv')
 
 logitredictions.to_csv('modelPredictions.csv', mode = 'a', header = False)

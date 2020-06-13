@@ -54,7 +54,7 @@ for index, row in matchups.iterrows():
 
     i += 1
 
-
+ 
 print(round(failureTotal / (failureTotal + successTotal), 4) * 100, '%')
 
 regressionDF = pd.DataFrame.from_records(regressionData)

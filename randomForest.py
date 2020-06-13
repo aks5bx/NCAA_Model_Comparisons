@@ -39,7 +39,7 @@ randomForestPredictions = pd.DataFrame(X_test)
 randomForestPredictions['Prediction'] = clf.predict(X_test)
 randomForestPredictions['Actual'] = y_test.values
 randomForestPredictions['Correct'] = (randomForestPredictions['Prediction'] == randomForestPredictions['Actual'])
-randomForestPredictions['Model'] = 'Random Forest'
+randomForestPredictions['Model'] = 'Random Forest' 
 
 randomForestPredictions.to_csv('randomForestPredictions.csv')
 
