@@ -10,14 +10,14 @@ import random
 from tqdm import tqdm
 
 
-regressionData = pd.read_csv('feedToModelData.csv') 
+# regressionData = pd.read_csv('feedToModelData.csv') 
+regressionData = pd.read_csv('feedToModelData2.csv') 
 regressionData = regressionData.dropna()
 regressionData = shuffle(regressionData)
 
-x = regressionData[regressionData.columns[3:75]]
+x = regressionData[regressionData.columns[2:-1]]
 
 standardScalerX = StandardScaler()
-
 x = standardScalerX.fit_transform(x)
 
 y = regressionData['Team1Win']

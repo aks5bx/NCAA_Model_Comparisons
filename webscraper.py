@@ -70,7 +70,7 @@ for year in range(2008, 2020):
                 statistic = cols[2]
                 yearDF.loc[yearDF.Team == cols[1], stat] = statistic
 
-    yearDF.to_csv('2019Check.csv')
+    # yearDF.to_csv('2019Check.csv')
 
 
     collectorDF = collectorDF.append(yearDF)
