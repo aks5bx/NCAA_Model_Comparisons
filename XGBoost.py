@@ -11,11 +11,12 @@ from tqdm import tqdm
 
 
 # regressionData = pd.read_csv('feedToModelData.csv') 
-regressionData = pd.read_csv('feedToModelData2.csv') 
+regressionData = pd.read_csv('feedToModelData2.csv', index_col = 0) 
 regressionData = regressionData.dropna()
 regressionData = shuffle(regressionData)
 
-x = regressionData[regressionData.columns[2:-1]]
+x = regressionData[regressionData.columns[2:]]
+x = x.loc[:, x.columns != 'Team1Win']
 
 standardScalerX = StandardScaler()
 x = standardScalerX.fit_transform(x)

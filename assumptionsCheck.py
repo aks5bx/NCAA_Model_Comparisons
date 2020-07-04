@@ -1,3 +1,10 @@
+### ASSUMPTIONS ###
+
+# Ordinal Dependent Variable (binary)           (Y) 
+# Independent Observations                      (Y) 
+# No multicollinearity (!!!)                    (X)
+# Data is suitable for log odds relationship    (Y) 
+
 ## Import useful libraries
 import pandas as pd
 from statsmodels.stats.outliers_influence import variance_inflation_factor
@@ -7,6 +14,10 @@ import numpy as np
 ## Read in data
 feedToModelData = pd.read_csv('feedToModelData.csv', index_col = 0)
 feedToModelData.iloc[:,2:-1].corr().to_csv('correlationMatrix.csv')
+
+
+### The work here is designed to correct the multicollinearity assumption, 
+### which is currently being violated 
 
 ## Define function to calculate Variable Inflation Factor
 def calc_vif(X):
@@ -31,6 +42,7 @@ val = 1000000
 i = 0
 
 feedToModelDataLoop = feedToModelData
+feedToModelDataLoop = feedToModelDataLoop.loc[:, feedToModelDataLoop.columns != 'Team1Win']
 while val > 100: 
     i += 1
     dfSource = calc_vif(feedToModelDataLoop)
@@ -48,9 +60,11 @@ while val > 100:
     feedToModelDataLoop = feedToModelDataLoop[variables]
 
 variables = variables + ['Team1Win']
-feedToModelData[variables]
+feedToModelData = feedToModelData[variables]
 
-feedToModelData.to_csv('feedToModelData2.csv')
+### We now meet the assumption for multicollinearity
+
+# feedToModelData.to_csv('feedToModelData2.csv')
 
 
 

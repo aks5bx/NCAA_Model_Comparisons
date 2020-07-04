@@ -3,7 +3,7 @@ from sklearn.utils import shuffle
 import pandas as pd
 #regressionData = pd.read_csv('feedToModelData.csv') 
 #regressionData = regressionData.dropna()
-regressionData = pd.read_csv('feedToModelData2.csv') 
+regressionData = pd.read_csv('feedToModelData2.csv', index_col = 0) 
 regressionData = regressionData.dropna()
 regressionData = shuffle(regressionData)
 
@@ -21,11 +21,16 @@ from sklearn.metrics import confusion_matrix
 from sklearn.model_selection import GridSearchCV
 from sklearn import metrics
 
-x = regressionData[regressionData.columns[2:-1]]
+x = regressionData[regressionData.columns[2:]]
+x = x.loc[:, x.columns != 'Team1Win']
+
+
+
 standardScalerX = StandardScaler()
 x = standardScalerX.fit_transform(x)
 
 y = regressionData['Team1Win']
+
 
 X_train, X_test, y_train, y_test = train_test_split(x, y, random_state=0, test_size=0.2)
 

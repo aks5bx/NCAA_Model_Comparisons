@@ -22,7 +22,9 @@ import warnings
 warnings.filterwarnings("ignore")
 
 
-x = regressionData[regressionData.columns[2:-1]]
+x = regressionData[regressionData.columns[2:]]
+x = x.loc[:, x.columns != 'Team1Win']
+
 
 standardScalerX = StandardScaler()
 x = standardScalerX.fit_transform(x)
@@ -72,14 +74,14 @@ for i in range(2):
 
 
 
-logitredictions = pd.DataFrame(X_test)
-logitredictions['Prediction'] = model.predict(X_test)
-logitredictions['Actual'] = y_test.values
-logitredictions['Correct'] = (logitredictions['Prediction'] == logitredictions['Actual'])
-logitredictions['Model'] = 'Logit'
+logitpredictions = pd.DataFrame(X_test)
+logitpredictions['Prediction'] = model.predict(X_test)
+logitpredictions['Actual'] = y_test.values
+logitpredictions['Correct'] = (logitredictions['Prediction'] == logitredictions['Actual'])
+logitpredictions['Model'] = 'Logit'
  
-logitredictions.to_csv('logitPredictions.csv')
+logitpredictions.to_csv('logitPredictions.csv')
 
-logitredictions.to_csv('modelPredictions.csv', mode = 'a', header = False)
+logitpredictions.to_csv('modelPredictions.csv', mode = 'a', header = False)
 
 
