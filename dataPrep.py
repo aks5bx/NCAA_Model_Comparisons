@@ -61,3 +61,5 @@ regressionDF = pd.DataFrame.from_records(regressionData)
 regressionDF.to_csv('regressionData.csv')
 
 ## REGRESSIONDATA gets changed and manually cleaned to turn into REGRESSIONUSEDATA
+
+
