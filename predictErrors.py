@@ -22,11 +22,9 @@ predictions = predictions[predictions.Model == 'SVM']
 
 x = predictions[predictions.columns[:-2]]
 
-
 y = predictions['Correct']
 
 X_train, X_test, y_train, y_test = train_test_split(x, y, random_state=0, test_size=0.2)
-
 
 
 logit_model = LogisticRegression()
@@ -47,6 +45,3 @@ model = clf.fit(X_train, y_train)
 print(round(model.score(X_test, y_test), 5) * 100, '%')
 
 model.best_estimator_.coef_
-
-
-
