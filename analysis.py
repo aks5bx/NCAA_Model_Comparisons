@@ -1,16 +1,21 @@
+## Import useful libraries
 import pandas as pd 
 import matplotlib.pyplot as plt
 
+## Read in prediction data
 predictions = pd.read_csv('modelPredictions.csv', header = None, index_col = 0)
 
+## Define prediction dataframe columns, which are the regression coefficient
 coefficients =  ['ST/Pos', 'ST/Pos2', 'Margin2', 'Margin', 'Last 102', 'TS%M2',
                        'Last 10', 'FG%M2', 'TS%M', 'BL%2', 'FG%M', 'BL%', 'CGWin%2', 'CGWin%',
                        'Ind', 'SOS2', 'SOS', 'TOM2', 'TOM', 'Prediction', 'Actual', 'Correct', 'Model']
 
 predictions.columns = coefficients
-       
+    
+## Define the four models to iterate through
 models = ['XGBoost', 'Logit', 'SVM' , 'Random Forest']
 
+## Set up data structures 
 XGBoostList = []
 LogitList = []
 SVMList = []
@@ -25,7 +30,9 @@ SVMListIncorrect = []
 RFListCorrect = []
 RFListIncorrect = []
 
+## Loop through each model
 for model in models: 
+    ## Isolate data for the model at hand
     subset = predictions[predictions['Model'] == model]
 
     correct = subset[subset['Correct'] == True]
@@ -33,10 +40,12 @@ for model in models:
 
     x = (list(subset.columns)) 
 
+    ## Iterate through each coefficient 
     for col in x: 
         if col == 'Ind' or col == 'Model' or col == 'Correct': 
             continue
-
+        
+        ## Compare the coefficients for a correct vs incorrect prediction
         correctAvg = correct[col].mean()
         incorrectAvg = incorrect[col].mean()
 
@@ -70,14 +79,8 @@ for model in models:
             RFListCorrect.append(correctAvg)
             RFListIncorrect.append(incorrectAvg)
         
-        
-        
-      #  print('Correct: ', correctAvg)
-      #  print('Incorrect: ', incorrectAvg)
-       # print(diff) 
-      #  print('-----------')
 
-
+## Remove unimportant coefficients
 coefficients.remove('Ind')
 coefficients.remove('Model')
 coefficients.remove('Correct')
@@ -137,7 +140,10 @@ RFResults.plot.bar()
 
 plt.show()
 
-### Results
+###############
+### Results ###
+###############
+
 # ST/Pos - inconclusive
 # ST/Pos2 - higher value when incorrect
 # Margin2 - inconclusive
