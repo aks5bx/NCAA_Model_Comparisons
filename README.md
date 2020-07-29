@@ -61,4 +61,11 @@ ST/Pos2 (Steals per possession for Team 2), BL%2 (Block % for Team 2).
 
 Note that these are both defensive metrics; and, they also may follow logically. As teams have better defenses, their performance may likely depend more on the quality of the offense they face. As a result, defensive minded teams may be more susceptible to random spikes in opponent offensive production and may be more erratic in the NCAA Tournament. As a result, stronger defensive metrics may be correlated with incorrect predictions. 
 
+## Notes and Limitations 
+
+This project serves primarily as a proof of concept. As in, this method of determining which factors make NCAA Basketball games harder to predict can be replicated in order to designate future games that may be particularly hard to predict. This designation can be used for betting purposes, for media promotion, or general fan knowledge. 
+
+This project is severely limited because the original four models used as data sources are not of professional grade accuracy. Instead, they all have accuracy scores around 70%. To reiterate, the goal of this project was not to create the best model; instead it was to try to discern what factors made a game hard to predict. Replicating this project with better, more accurate models would likely result in more accurate results. 
+
+Another limitation to note is that in order to avoid multicollinearity, some explanatory variables were removed (those with high VIFs). As such, these variables were not candidates to be identified as causes of hard-to-predict games. 
 
