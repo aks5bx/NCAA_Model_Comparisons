@@ -37,6 +37,15 @@ There are a few particular coefficients that seem to exhibit the same difference
 #### Logit 
 ![alt text](https://github.com/aks5bx/NCAA_Model_Comparisons/blob/Develop/LogitCoefficients.png?raw=true)
 
+#### SVM 
+![alt text](https://github.com/aks5bx/NCAA_Model_Comparisons/blob/Develop/SVMCoefficients.png?raw=true)
+
+#### Random Forest 
+![alt text](https://github.com/aks5bx/NCAA_Model_Comparisons/blob/Develop/randomForestCoefficients.png?raw=true)
+
+#### XGBoost 
+![alt text](https://github.com/aks5bx/NCAA_Model_Comparisons/blob/Develop/XGBoostCoefficients.png?raw=true)
+
 
 
 
