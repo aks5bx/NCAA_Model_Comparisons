@@ -35,7 +35,7 @@ This project primarily uses python, with a strong reliance on the pandas and sci
 There are a few particular coefficients that seem to exhibit the same difference between cases of correct predictions and incorrect predictions. The difference in scaled value for each coefficient, for each model is shown below, highlighting the difference between what the coefficient value was in correct predictions vs incorrect predictions.
 
 #### Logit 
-![alt text](https://github.com/aks5bx/NCAA_Model_Comparisons/blob/Develop/LogitCoefficients.png =10x)
+![alt text](https://github.com/aks5bx/NCAA_Model_Comparisons/blob/Develop/LogitCoefficients.png?raw=true)
 
 
 
