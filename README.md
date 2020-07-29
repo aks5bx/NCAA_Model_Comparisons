@@ -31,6 +31,10 @@ This project primarily uses python, with a strong reliance on the pandas and sci
 #### Analysis 
 - analysis.py: Looks into the average value of a field, for each algorithm, when the prediction was correct vs incorrect
 
+#### Legacy Files 
+- Files pertaining to an "NCAA Algorithm" are legacy files from a previous attempt at an NCAA Prediction Algorithm using the same data 
+- There are also various other legacy files from previous data sources and tests run during the creation of this project
+
 ## Findings
 There are a few particular coefficients that seem to exhibit the same difference between cases of correct predictions and incorrect predictions. The difference in scaled value for each coefficient, for each model is shown below, highlighting the difference between what the coefficient value was in correct predictions vs incorrect predictions.
 
@@ -46,6 +50,15 @@ There are a few particular coefficients that seem to exhibit the same difference
 #### XGBoost 
 ![alt text](https://github.com/aks5bx/NCAA_Model_Comparisons/blob/Develop/XGBoostCoefficients.png?raw=true)
 
+#### Coefficients with Strictly Higher Values when Prediction is Correct 
+SOS (Strength of Schedule for Team 1), SOS2 (Strength of Schedule for Team 2)
 
+This seems to make logical sense. As teams have stronger strength of schedules during the regular season, they are "tested" teams. As a result, their play may be less eratic in the NCAA Tournament and therefore easier to predict. As a result, higher strength of schedules may be correlated with correct predictions. 
+
+
+#### Coefficients with Strictly Higher Values when Prediction is InCorrect 
+ST/Pos2 (Steals per possession for Team 2), BL%2 (Block % for Team 2). 
+
+Note that these are both defensive metrics; and, they also may follow logically. As teams have better defenses, their performance may likely depend more on the quality of the offense they face. As a result, defensive minded teams may be more susceptible to random spikes in opponent offensive production and may be more erratic in the NCAA Tournament. As a result, stronger defensive metrics may be correlated with incorrect predictions. 
 
 
