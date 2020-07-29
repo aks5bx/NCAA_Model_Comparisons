@@ -20,7 +20,7 @@ This project primarily uses python, with a strong reliance on the pandas and sci
 - dataPrep.py : takes fullData.csv and matchups.csv and creates a single row with both teams & their corresponding statistics, ultimately creating regressionData.csv 
 - regressionUseData.csv : cleans regressionData.csv 
 - shuffleData.py : shuffles/randomizes the data order to remove spurious patterns, produces feedToModelData.csv
-- feedToModelData.csv : final csv that can be fed into a Machine Learning model 
+- feedToModelData2.csv : final csv that can be fed into a Machine Learning model 
 
 #### Model Generation
 - regression.py : multivariate regression, includes basic feature engineering using a Standard Scaler
@@ -29,6 +29,10 @@ This project primarily uses python, with a strong reliance on the pandas and sci
 - XGBoost.py: extreme gradient boosting algorithm, includes iterative parameter tuning and basic feature engineering using a Standard Scaler 
 
 #### Analysis 
-- Looks into the average value of a field, for each algorithm, when the prediction was correct vs incorrect
+- analysis.py: Looks into the average value of a field, for each algorithm, when the prediction was correct vs incorrect
 
-## Note: this project is currently in progress
+#### Findings
+There are a few particular coefficients that seem to exhibit the same difference between cases of correct predictions and incorrect predictions. The difference in scaled value for each coefficient, for each model is shown below, highlighting the difference between what the coefficient value was in correct predictions vs incorrect predictions. 
+
+
+
