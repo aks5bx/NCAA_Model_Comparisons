@@ -19,9 +19,11 @@ The process of executing this project is as follows
 3. Build and Execute Models 
 
 *The four models used are Random Forest, SVM, Logit, and XGBoost. These models were used in order to create a wide variety in approaches. The models give us a set of coefficients along with a game prediction for each game. We have the data to also determine whether the game prediction was correct or incorrect.*
+
 4. Analyze model coefficients 
 
 *For each model, the data was split into data from correct game predictions and data from incorrect game predictions. Then, for each group, the average coefficient was recorded. For example, in cases of incorrect predictions, the Block %s for each team were recorded. Then, for cases of correct predictions, the Block %s were recorded for each team. This allows us to compare the Block %s in cases where the prediction was incorrect vs correct. As is discussed later in this write up, one example is that when game predictions are correct, Strength of Schedules tend to be higher for both teams (compared to Strength of Schedules from incorrect game predictions). As a result, we can posit that when a game features two teams with strong strengths of schedules, that game may be easier to predict.* 
+
 5. Report Findings
 
 ## Technology Used 
