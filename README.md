@@ -12,6 +12,16 @@ From start to finish, this project includes:
 - Machine Learning 
 - Analysis/Interpretation
 
+## Process
+The process of executing this project is as follows
+1. Collect Data (webscraping)
+2. Clean Data, Conduct Feature Engineering
+3. Build and Execute Models 
+*The four models used are Random Forest, SVM, Logit, and XGBoost. These models were used in order to create a wide variety in approaches. The models give us a set of coefficients along with a game prediction for each game. We have the data to also determine whether the game prediction was correct or incorrect.*
+4. Analyze model coefficients 
+*For each model, the data was split into data from correct game predictions and data from incorrect game predictions. Then, for each group, the average coefficient was recorded. For example, in cases of incorrect predictions, the Block %s for each team were recorded. Then, for cases of correct predictions, the Block %s were recorded for each team. This allows us to compare the Block %s in cases where the prediction was incorrect vs correct. As is discussed later in this write up, one example is that when game predictions are correct, Strength of Schedules tend to be higher for both teams (compared to Strength of Schedules from incorrect game predictions). As a result, we can posit that when a game features two teams with strong strengths of schedules, that game may be easier to predict.* 
+5. Report Findings
+
 ## Technology Used 
 This project primarily uses python, with a strong reliance on the pandas and scikit-learn packages. 
 
@@ -105,6 +115,8 @@ In order to confirm that the trends identified with the help of the bar charts a
 | SVM  | CGWin% (2)  | 0.05608979710101595  |
 | SVM  | SOS (2)  | 7.13719786347017e-07  |
 | SVM  | SOS  | 0.0026918549589998522  |
+
+This table gives us data that confirms that Strength of Schedule data is significantly different in cases where the game prediction ends up correct versus cases where the game prediction ends up incorrect. However, it does not confirm a secondary finding where Steals Per Possession (2) and Block % (2) are also indicators. (Although it should be noted that Block % for team 1 does show up in this chart). It is imperative to note that while this indicates statistical significance for Strength of Schedule, a lack of indication (in the case of Block % and Steal/Pos), does not mean there is no statistical significance. It merely means that this specific analysis found no statistical significance. 
 
 ## Notes and Limitations 
 
