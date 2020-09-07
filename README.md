@@ -42,6 +42,23 @@ This project primarily uses python, with a strong reliance on the pandas and sci
 - Files pertaining to an "NCAA Algorithm" are legacy files from a previous attempt at an NCAA Prediction Algorithm using the same data 
 - There are also various other legacy files from previous data sources and tests run during the creation of this project
 
+## Data Overview
+The data is formated with the following fields 
+- Game Statistics for Team 1 (SOS, FG%, etc)
+- Game Statistics for Team 2 (SOS2, FG%2, etc)
+- Binary field for "Did Team 1 Win"
+
+Here are some of the metrics used:
+- ST/Pos: Steals per possesion
+- Margin: Turnover margin 
+- Last 10: wins in the last 10 games 
+- TS%M: True Shooting Margin 
+- FG%M: Field Goal % Margin
+- BL%: Block percentage 
+- CGWin%: Close Game Win %
+- All metrics available for both teams
+
+
 ## Findings
 There are a few particular coefficients that seem to exhibit the same difference between cases of correct predictions and incorrect predictions. The difference in scaled value for each coefficient, for each model is shown below, highlighting the difference between what the coefficient value was in correct predictions vs incorrect predictions.
 
