@@ -68,6 +68,27 @@ ST/Pos2 (Steals per possession for Team 2), BL%2 (Block % for Team 2).
 
 Note that these are both defensive metrics; and, they also may follow logically. As teams have better defenses, their performance may likely depend more on the quality of the offense they face. As a result, defensive minded teams may be more susceptible to random spikes in opponent offensive production and may be more erratic in the NCAA Tournament. As a result, stronger defensive metrics may be correlated with incorrect predictions. 
 
+
+#### Two Sample T Test Confirmation 
+In order to confirm that the trends identified with the help of the bar charts above are statistically significant, we employ a two sample t-test. It is worth noting that a two sample t test assumes two independent samples. In this case, the samples are not fully independent, but there is no data overlap between the two samples given their mutual exclusivity (one sample is where the prediction was correct while the other is where the prediction was not correct). As such, we consider the samples independent as far as the requirements for the t-test are concerned. Below is a table with all of the coefficients that have statistically significant (p value less than 0.1) differences when the prediction is correct vs incorrect. (2 is denoted for team 2 coefficient, coefficients for team 1 are left unmarked). 
+
+| Model  | Coefficient | P-Value |
+| ------------- | ------------- | ------------- |
+| XGBoost  | Last 10 (2)  | 0.05760942341856636  |
+| XGBoost  | TS%M (2)  | 0.05749002016831224  |
+| XGBoost  | FG%M  | 0.07905568941500737  |
+| XGBoost  | BL%  | 0.0685452455325351  |
+| XGBoost  | TOM (2)  | 0.08201537311636418  |
+| Logit  | Last 10 (2)  | 0.07698479102489343  |
+| Logit  | SOS (2)  | 8.225948138780171e-09  |
+| Logit  | SOS  | 3.9270136842266795e-06  |
+| SVM  | Margin  | 0.039302231061566766  |
+| SVM  | Last 10 (2)  | 0.08885536255630606  |
+| SVM  | Last 10  | 0.011280306649566694  |
+| SVM  | CGWin% (2)  | 0.05608979710101595  |
+| SVM  | SOS (2)  | 7.13719786347017e-07  |
+| SVM  | SOS  | 0.0026918549589998522  |
+
 ## Notes and Limitations 
 
 This project serves primarily as a proof of concept. As in, this method of determining which factors make NCAA Basketball games harder to predict can be replicated in order to designate future games that may be particularly hard to predict. This designation can be used for betting purposes, for media promotion, or general fan knowledge. 
