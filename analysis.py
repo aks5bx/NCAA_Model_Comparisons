@@ -1,3 +1,5 @@
+#%%
+
 ## Import useful libraries
 import pandas as pd 
 import matplotlib.pyplot as plt
@@ -96,7 +98,7 @@ XGBoostResults = pd.DataFrame(
 
 XGBoostResults.set_index('coefficients', inplace=True)
 
-XGBoostResults.plot.bar()
+#XGBoostResults.plot.bar()
 
 ## Logit
 LogitResults = pd.DataFrame(
@@ -109,7 +111,7 @@ LogitResults = pd.DataFrame(
 
 LogitResults.set_index('coefficients', inplace=True)
 
-LogitResults.plot.bar()
+#LogitResults.plot.bar()
 
 
 ## SVM 
@@ -123,7 +125,7 @@ SVMResults = pd.DataFrame(
 
 SVMResults.set_index('coefficients', inplace=True)
 
-SVMResults.plot.bar()
+#SVMResults.plot.bar()
 
 ## Random Forest
 RFResults = pd.DataFrame(
@@ -136,9 +138,51 @@ RFResults = pd.DataFrame(
 
 RFResults.set_index('coefficients', inplace=True)
 
-RFResults.plot.bar()
+#RFResults.plot.bar()
 
-plt.show()
+#%%
+
+### TWO SAMPLE T TEST ###
+import scipy 
+from scipy import stats
+
+coefficients =  ['ST/Pos', 'ST/Pos2', 'Margin2', 'Margin', 'Last 102', 'TS%M2',
+                       'Last 10', 'FG%M2', 'TS%M', 'BL%2', 'FG%M', 'BL%', 'CGWin%2', 'CGWin%',
+                       'SOS2', 'SOS', 'TOM2', 'TOM']
+
+
+## XGBoost
+colDiffs = []
+
+for model in models: 
+    for col in coefficients:
+        correct = list(predictions[(predictions['Model'] == model) & (predictions.Correct == True)][col])
+
+        incorrect = list(predictions[(predictions['Model'] == model) & (predictions.Correct == False)][col])
+
+        t, p = stats.ttest_ind(correct,incorrect, equal_var= False)
+
+        if p < 0.1:
+            tup = (model, col, p, t)
+            colDiffs.append(tup)
+            print(model)
+            print(col)
+            print(p)
+            print(t)
+            print('<<<>>>>')
+
+## Logit
+
+
+## SVM
+
+
+## Random Forest
+
+
+
+
+#plt.show()
 
 ###############
 ### Results ###
@@ -173,3 +217,6 @@ plt.show()
 
 
 
+
+
+# %%
